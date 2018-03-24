@@ -1,19 +1,19 @@
 #include "Arduino.h"
 #include "LightStrip.h"
 
-bool LightStrip::getPower() {
+bool LightStrip::getIsOn() {
     return _power;
 }
 
-void LightStrip::setPower(bool isOn) {
+void LightStrip::setIsOn(bool isOn) {
     _power = isOn;
 }
 
-int LightStrip::getHue() {
+byte LightStrip::getHue() {
     return _hue;
 }
 
-void LightStrip::setHue(int hue) {
+void LightStrip::setHue(byte hue) {
     _hue = hue;
 }
 
