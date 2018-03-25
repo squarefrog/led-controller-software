@@ -7,23 +7,25 @@
 #define LightStripController_h
 
 #include <Arduino.h>
-#include "lightstrip.h"
+#include "FastLED.h"
+#include "lightstripmodel.h"
 
 class LightStripController {
     public:
         void setup();
+        void loop();
 
         bool getIsOn();
         void setIsOn(bool isOn);
 
-        byte getHue();
+        int getHue();
         void setHue(int hue);
 
         byte getSaturation();
-        void setSaturation(int saturation);
+        void setSaturation(byte saturation);
 
         byte getBrightness();
-        void setBrightness(int saturation);
+        void setBrightness(byte saturation);
 
         String getName();
         void setName(String name);
@@ -32,6 +34,7 @@ class LightStripController {
 
     private:
         LightStrip model;
+        int scaledValue(int value, int input, int output);
 };
 
 #endif

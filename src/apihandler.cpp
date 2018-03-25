@@ -63,10 +63,9 @@ void APIHandler::handleGETRequest() {
         case ON:
             value = strip.getIsOn() ? "true" : "false";
             break;
-        case HUE: {
+        case HUE:
             value = String(strip.getHue(), DEC);
             break;
-        }
         case SATURATION:
             value = String(strip.getSaturation(), DEC);
             break;

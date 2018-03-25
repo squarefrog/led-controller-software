@@ -7,8 +7,8 @@ Allow control of an LED strip wirelessly, either over web API or [Homebridge](ht
 - [x] Allow setting up WiFi using [WiFiManager](https://github.com/tzapu/WiFiManager)
 - [x] Create a `LightStrip` model
 - [x] Create web server with [Homebridge](https://github.com/nfarina/homebridge) compatible API
-- [ ] Connect LED Strip and get basic control working
-- [ ] Connect API handler to LED handling code
+- [x] Connect LED Strip and get basic control working
+- [x] Connect API handler to LED handling code
 - [ ] Add in a relay or transistor to switch LED strips on and off
 - [ ] Save the current colour as the default boot colour
 - [ ] Fabricate a PCB
