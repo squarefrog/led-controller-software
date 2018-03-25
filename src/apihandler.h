@@ -7,7 +7,7 @@
 
 #include <Arduino.h>
 #include <ESP8266WebServer.h>
-#include "LightStrip.h"
+#include "lightstripcontroller.h"
 
 enum Path {
     ON,
@@ -20,13 +20,13 @@ enum Path {
 
 class APIHandler {
     ESP8266WebServer &server;
-    LightStrip &strip;
+    LightStripController &strip;
 
     public:
         void setup();
         void loop();
 
-        APIHandler(ESP8266WebServer &s, LightStrip &lightStrip) :
+        APIHandler(ESP8266WebServer &s, LightStripController &lightStrip) :
         server(s),
         strip(lightStrip) { }
 

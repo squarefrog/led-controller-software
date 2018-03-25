@@ -1,4 +1,3 @@
-#include "Arduino.h"
 #include "apihandler.h"
 
 void APIHandler::setup() {
@@ -84,28 +83,28 @@ void APIHandler::handleGETRequest() {
 
 void APIHandler::handlePOSTRequest() {
     Path path = parsePath();
-    String arg = server.arg("v");
+    String value = server.arg("v");
 
-    if (arg == "" && path != SAVE_DEFAULT) {
+    if (value == "" && path != SAVE_DEFAULT) {
         sendError(422, "Bad parameter");
         return;
     }
 
     switch (path) {
         case ON:
-            strip.setIsOn(arg == "true");
+            strip.setIsOn(value == "true");
             break;
         case HUE:
-            strip.setHue(arg.toInt());
+            strip.setHue(value.toInt());
             break;
         case SATURATION:
-            strip.setSaturation(arg.toInt());
+            strip.setSaturation(value.toInt());
             break;
         case BRIGHTNESS:
-            strip.setBrightness(arg.toInt());
+            strip.setBrightness(value.toInt());
             break;
         case NAME:
-            strip.setName(arg);
+            strip.setName(value);
             break;
         case SAVE_DEFAULT:
             strip.saveDefaultColour();
