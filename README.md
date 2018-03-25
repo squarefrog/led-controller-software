@@ -6,7 +6,7 @@ Allow control of an LED strip wirelessly, either over web API or [Homebridge](ht
 
 - [x] Allow setting up WiFi using [WiFiManager](https://github.com/tzapu/WiFiManager)
 - [x] Create a `LightStrip` model
-- [ ] Create web server with [Homebridge](https://github.com/nfarina/homebridge) compatible API
+- [x] Create web server with [Homebridge](https://github.com/nfarina/homebridge) compatible API
 - [ ] Connect LED Strip and get basic control working
 - [ ] Connect API handler to LED handling code
 - [ ] Add in a relay or transistor to switch LED strips on and off
@@ -46,9 +46,9 @@ While it is tempting to get a power supply from eBay, or AliExpress for as littl
 
 ### API (WIP)
 
-The API endpoints are listed below. Endpoint value ranges are taken from the [HomeKit Accessory Protocol](https://developer.apple.com/support/homekit-accessory-protocol/), specifically the `Lightbulb` service. Fetching current values returns JSON with a key and value. For example:
+The API endpoints are listed below. Endpoint value ranges are taken from the [HomeKit Accessory Protocol](https://developer.apple.com/support/homekit-accessory-protocol/), specifically the `Lightbulb` service. Fetching current values returns JSON with the current value. For example:
 
-    { "key": "hue", "value": 275 }
+    { "status": "ok", value": 42 }
 
 #### Power
 
