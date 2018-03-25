@@ -12,8 +12,7 @@ void APIHandler::setup() {
 
     for (int i = 0; i < 6; i++) {
         String path = paths[i];
-        server.on(path, HTTP_GET, std::bind(&APIHandler::handleRequest, this));
-        server.on(path, HTTP_POST, std::bind(&APIHandler::handleRequest, this));
+        server.on(path, std::bind(&APIHandler::handleRequest, this));
     }
 
     server.onNotFound(std::bind(&APIHandler::handleNotFound, this));
