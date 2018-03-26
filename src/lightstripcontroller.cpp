@@ -11,13 +11,6 @@ void LightStripController::setup() {
 }
 
 void LightStripController::loop() {
-    byte hue = model.hue;
-    byte brightness = model.brightness;
-    byte value = model.saturation;
-
-    for (int i = 0; i <= NUM_LEDS; i++) {
-        leds[i] = CHSV(hue, brightness, value);
-    }
 }
 
 bool LightStripController::getIsOn() {
@@ -37,6 +30,7 @@ int LightStripController::getHue() {
 void LightStripController::setHue(int hue) {
     int constrained = constrain(hue, 0, 360);
     model.hue = scaledValue(constrained, 255, 360);
+    updateLEDStrip();
 }
 
 // HomeKit defines the Saturation range as 0-100, however FastLED requires a
@@ -48,6 +42,7 @@ byte LightStripController::getSaturation() {
 void LightStripController::setSaturation(byte saturation) {
     byte constrained = constrain(saturation, 0, 100);
     model.saturation = scaledValue(saturation, 100, 255);
+    updateLEDStrip();
 }
 
 // HomeKit defines the Brightness range as 0-100, however FastLED requires a
@@ -59,6 +54,7 @@ byte LightStripController::getBrightness() {
 void LightStripController::setBrightness(byte brightness) {
     byte constrained = constrain(brightness, 0, 100);
     model.brightness = scaledValue(constrained, 100, 255);
+    updateLEDStrip();
 }
 
 String LightStripController::getName() {
@@ -76,4 +72,16 @@ int LightStripController::scaledValue(int value, int input, int output) {
     float multiplier = float(input) / float(output);
     float result = round(multiplier * float(value));
     return int(result);
+}
+
+void LightStripController::updateLEDStrip() {
+    byte hue = model.hue;
+    byte brightness = model.brightness;
+    byte value = model.saturation;
+
+    for (int i = 0; i <= NUM_LEDS; i++) {
+        leds[i] = CHSV(hue, brightness, value);
+    }
+
+    FastLED.show();
 }
