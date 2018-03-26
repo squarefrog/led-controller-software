@@ -1,6 +1,5 @@
 #include "apihandler.h"
 
-
 APIHandler::APIHandler(ESP8266WebServer &aServer, LightStripController &lightStrip) :
 server(aServer),
 strip(lightStrip)

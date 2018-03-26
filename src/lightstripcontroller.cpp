@@ -1,7 +1,5 @@
+#include "constants.h"
 #include "lightstripcontroller.h"
-
-#define LED_PIN     7
-#define NUM_LEDS    150
 
 CRGB leds[NUM_LEDS];
 
