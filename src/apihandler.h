@@ -19,18 +19,15 @@ enum Path {
 };
 
 class APIHandler {
-    ESP8266WebServer &server;
-    LightStripController &strip;
-
     public:
         void setup();
         void loop();
 
-        APIHandler(ESP8266WebServer &s, LightStripController &lightStrip) :
-        server(s),
-        strip(lightStrip) { }
+        APIHandler(ESP8266WebServer &aServer, LightStripController &lightStrip);
 
     private:
+        ESP8266WebServer &server;
+        LightStripController &strip;
         void handleRequest();
         void handleGETRequest();
         void handlePOSTRequest();
