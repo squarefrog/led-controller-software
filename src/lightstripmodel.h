@@ -3,12 +3,13 @@
  * light strip.
  */
 
-#ifndef LightStrip_h
-#define LightStrip_h
+#ifndef SRC_LIGHTSTRIPMODEL_H
+#define SRC_LIGHTSTRIPMODEL_H
 
 #include <Arduino.h>
 
-struct LightStrip {
+struct LightStrip
+{
     bool isOn;
     int hue;
     byte saturation;

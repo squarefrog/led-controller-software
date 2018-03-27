@@ -2,16 +2,16 @@
  * This class enables saving and loading a light strip model to the EEPROM.
  */
 
-#ifndef PERSISTENCE_h
-#define PERSISTENCE_h
+#ifndef SRC_PERSISTENCE_H
+#define SRC_PERSISTENCE_H
 
-#include <Arduino.h>
 #include "lightstripmodel.h"
 
-class Persistence {
-    public:
-        void saveModel(LightStrip model);
-        LightStrip loadModel();
+class Persistence
+{
+  public:
+    void saveModel(LightStrip model);
+    LightStrip loadModel();
 };
 
 #endif
