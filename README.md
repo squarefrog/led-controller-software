@@ -9,8 +9,9 @@ Allow control of an LED strip wirelessly, either over web API or [Homebridge](ht
 - [x] Create web server with [Homebridge](https://github.com/nfarina/homebridge) compatible API
 - [x] Connect LED Strip and get basic control working
 - [x] Connect API handler to LED handling code
-- [ ] Add in a relay or transistor to switch LED strips on and off
-- [ ] Save the current colour as the default boot colour
+- [ ] ~~Add in a relay or transistor to switch LED strips on and off~~
+- [ ] Fade in/out the LEDs when toggling power
+- [x] Save the current colour as the default boot colour
 - [ ] Fabricate a PCB
 - [ ] Support OTA updates
 - [ ] Create [Homebridge](https://github.com/nfarina/homebridge) plugin
@@ -24,7 +25,7 @@ Allow control of an LED strip wirelessly, either over web API or [Homebridge](ht
 - WS2812B LED Light Strip - available in different LED densities. I use 30 per meter, which is fine for this purpose
 - 300-500 Ohm Resistor - to prevent voltage spikes which could damage the first LED
 - 1000 µF 6.3v or higher capacitor - to smooth the current drain from the PSU
-- Relay - the LED strip uses 1mA per LED even when the lights are off, so this allows the LED strip to be completely switched off when not in use
+- ~~Relay - the LED strip uses 1mA per LED even when the lights are off, so this allows the LED strip to be completely switched off when not in use~~
 - A suitable 5V power supply - see [Power Requirements](#power-requirements).
 
 ### Power Requirements

@@ -8,13 +8,13 @@
 
 #include <Arduino.h>
 
-class LightStrip {
-    public:
-        bool isOn;
-        int hue;
-        byte saturation;
-        byte brightness;
-        String name;
+struct LightStrip {
+    bool isOn;
+    int hue;
+    byte saturation;
+    byte brightness;
+    String name;
+    LightStrip();
 };
 
 #endif
