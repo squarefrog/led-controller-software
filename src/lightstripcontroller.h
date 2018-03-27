@@ -32,6 +32,8 @@ class LightStripController {
 
         void saveDefaultColour();
 
+        LightStripController();
+
     private:
         LightStrip model;
         int scaledValue(int value, int input, int output);

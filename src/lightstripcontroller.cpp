@@ -1,7 +1,13 @@
 #include "constants.h"
 #include "lightstripcontroller.h"
+#include "persistence.h"
 
 CRGB leds[NUM_LEDS];
+
+LightStripController::LightStripController() {
+    Persistence p;
+    model = p.loadModel();
+}
 
 void LightStripController::setup() {
     FastLED.addLeds<WS2812, LED_PIN, GRB>(leds, NUM_LEDS);
@@ -60,6 +66,8 @@ void LightStripController::setName(String name) {
 }
 
 void LightStripController::saveDefaultColour() {
+    Persistence p;
+    p.saveModel(model);
 }
 
 int LightStripController::scaledValue(int value, int input, int output) {
