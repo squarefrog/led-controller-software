@@ -1,4 +1,4 @@
-#include "lightstripmodel.h"
+#include "LightStripModel.h"
 
 LightStrip::LightStrip()
 {

@@ -6,7 +6,7 @@
 #ifndef SRC_LIGHTSTRIPCONTROLLER_H
 #define SRC_LIGHTSTRIPCONTROLLER_H
 
-#include "lightstripmodel.h"
+#include "LightStripModel.h"
 
 class LightStripController
 {

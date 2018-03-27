@@ -5,7 +5,7 @@
 #ifndef SRC_PERSISTENCE_H
 #define SRC_PERSISTENCE_H
 
-#include "lightstripmodel.h"
+#include "LightStripModel.h"
 
 class Persistence
 {

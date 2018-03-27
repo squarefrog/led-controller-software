@@ -7,7 +7,7 @@
 
 #include <ESP8266WebServer.h>
 
-#include "lightstripcontroller.h"
+#include "LightStripController.h"
 
 enum Path
 {

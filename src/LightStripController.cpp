@@ -1,9 +1,9 @@
-#include "lightstripcontroller.h"
+#include "LightStripController.h"
 
 #include <FastLED.h>
 
-#include "constants.h"
-#include "persistence.h"
+#include "Constants.h"
+#include "Persistence.h"
 
 CRGB leds[NUM_LEDS];
 
