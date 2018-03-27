@@ -11,7 +11,7 @@
 class LightStrip {
     public:
         bool isOn;
-        byte hue;
+        int hue;
         byte saturation;
         byte brightness;
         String name;

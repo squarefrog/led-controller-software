@@ -21,39 +21,33 @@ void LightStripController::setIsOn(bool isOn) {
     model.isOn = isOn;
 }
 
-// HomeKit defines the Hue range as 0-360, however FastLED requires a range of
-// 0-255, so conversion is needed when setting/getting.
 int LightStripController::getHue() {
-    return scaledValue(model.hue, 360, 255);
+    return model.hue;
 }
 
 void LightStripController::setHue(int hue) {
     int constrained = constrain(hue, 0, 360);
-    model.hue = scaledValue(constrained, 255, 360);
+    model.hue = constrained;
     updateLEDStrip();
 }
 
-// HomeKit defines the Saturation range as 0-100, however FastLED requires a
-// range of 0-255, so conversion is needed when setting/getting.
 byte LightStripController::getSaturation() {
-    return scaledValue(model.saturation, 255, 100);
+    return model.saturation;
 }
 
 void LightStripController::setSaturation(byte saturation) {
     byte constrained = constrain(saturation, 0, 100);
-    model.saturation = scaledValue(saturation, 100, 255);
+    model.saturation = constrained;
     updateLEDStrip();
 }
 
-// HomeKit defines the Brightness range as 0-100, however FastLED requires a
-// range of 0-255, so conversion is needed when setting/getting.
 byte LightStripController::getBrightness() {
-    return scaledValue(model.brightness, 255, 100);
+    return model.brightness;
 }
 
 void LightStripController::setBrightness(byte brightness) {
     byte constrained = constrain(brightness, 0, 100);
-    model.brightness = scaledValue(constrained, 100, 255);
+    model.brightness = constrained;
     updateLEDStrip();
 }
 
@@ -75,12 +69,14 @@ int LightStripController::scaledValue(int value, int input, int output) {
 }
 
 void LightStripController::updateLEDStrip() {
-    byte hue = model.hue;
-    byte brightness = model.brightness;
-    byte value = model.saturation;
+    // HomeKit defines hue, saturation and brightness values differently to
+    // what FastLED expects, so scale the values appropriately.
+    byte hue = scaledValue(model.hue, 360, 255);
+    byte saturation = scaledValue(model.saturation, 100, 255);
+    byte brightness = scaledValue(model.brightness, 100, 255);
 
     for (int i = 0; i <= NUM_LEDS; i++) {
-        leds[i] = CHSV(hue, brightness, value);
+        leds[i] = CHSV(hue, saturation, brightness);
     }
 
     FastLED.show();
