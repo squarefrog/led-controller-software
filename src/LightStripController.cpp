@@ -19,6 +19,14 @@ void LightStripController::setup()
     // If your power supply does not have enough headroom to power all your
     // LEDs, you can limit the max power.
     FastLED.setMaxPowerInVoltsAndMilliamps(5, 4000);
+
+    // Initialise the LEDs to black
+    for (int i = 0; i <= NUM_LEDS; i++)
+    {
+        leds[i] = CRGB::Black;
+    }
+
+    FastLED.show();
 }
 
 void LightStripController::loop()
