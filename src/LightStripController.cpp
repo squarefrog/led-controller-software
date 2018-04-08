@@ -100,8 +100,8 @@ void LightStripController::updateLEDStrip()
     // HomeKit defines hue, saturation and brightness values differently to
     // what FastLED expects, so scale the values appropriately.
     byte hue = scaledValue(model.hue, 360, 255);
-    byte saturation = scaledValue(model.saturation, 100, 255);
-    byte brightness = scaledValue(model.brightness, 100, 255);
+    byte saturation = scaledValue(model.saturation, 255, 100);
+    byte brightness = scaledValue(model.brightness, 255, 100);
 
     for (int i = 0; i <= NUM_LEDS; i++)
     {
