@@ -3,8 +3,8 @@
 LightStrip::LightStrip()
 {
     isOn = true;
-    hue = 255;
+    hue = 0;
     saturation = 100;
     brightness = 100;
-    name = "Light Strip";
+    strncpy(name, "Light Strip", sizeof(name));
 }

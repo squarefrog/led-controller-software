@@ -14,7 +14,7 @@ struct LightStrip
     int hue;
     byte saturation;
     byte brightness;
-    String name;
+    char name[65];
     LightStrip();
 };
 

@@ -78,7 +78,8 @@ String LightStripController::getName()
 
 void LightStripController::setName(String name)
 {
-    model.name = name;
+    strncpy(model.name, name.c_str(), sizeof(model.name));
+    Serial.println("Set name: " + name + "(" + model.name + ")");
 }
 
 void LightStripController::saveDefaultColour()
