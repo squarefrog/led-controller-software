@@ -9,11 +9,12 @@ Allow control of an LED strip wirelessly, either over web API or [Homebridge](ht
 - [x] Create web server with [Homebridge](https://github.com/nfarina/homebridge) compatible API
 - [x] Connect LED Strip and get basic control working
 - [x] Connect API handler to LED handling code
-- [ ] ~~Add in a relay or transistor to switch LED strips on and off~~
-- [ ] Fade in/out the LEDs when toggling power
 - [x] Save the current colour as the default boot colour
-- [ ] Fabricate a PCB
-- [ ] Support OTA updates
+- [ ] Fade in/out the LEDs when toggling power
+- [ ] Initialise and fade in LEDs before initialising WiFi stack
+- [ ] Show WiFi connect error by pulsing LEDs Red
+- [x] Fabricate a [PCB layout](https://github.com/squarefrog/led-controller)
+- [x] Support OTA updates
 - [ ] Create [Homebridge](https://github.com/nfarina/homebridge) plugin
 - [ ] Create [Postman](https://www.getpostman.com) API spec
 
@@ -21,12 +22,21 @@ Allow control of an LED strip wirelessly, either over web API or [Homebridge](ht
 
 ### Bill of Materials (TBC)
 
-- ESP8266 Arduino compatible with built-in WiFi
-- WS2812B LED Light Strip - available in different LED densities. I use 30 per meter, which is fine for this purpose
-- 300-500 Ohm Resistor - to prevent voltage spikes which could damage the first LED
+- Adafruit Huzzah Breakout - ESP8266 breakout board, any ESP8266 will probably work, but this one is nice and small
+- WS2812B LED Light Strip - available in different LED densities. I use 30 per meter, which is fine for my purpose
+- 150-200 Ohm Resistor - to prevent voltage spikes which could damage the first LED
 - 1000 µF 6.3v or higher capacitor - to smooth the current drain from the PSU
-- ~~Relay - the LED strip uses 1mA per LED even when the lights are off, so this allows the LED strip to be completely switched off when not in use~~
-- A suitable 5V power supply - see [Power Requirements](#power-requirements).
+- A suitable 5V power supply - see [Power Requirements](#power-requirements)
+
+#### Optional
+
+If using the PCB layout, you will also need:
+
+- DC Jack - Cliff DC10A, or DC10L
+- 3-way Terminal Block - 3.5mm pitch, or you can just solder the wires direct to the PCB
+- 0.1" pitch female pin headers - this allows you to remove the Huzzah without desoldering
+- M2.5 screws - for mounting to your project case
+- 3D printed enclosure, or any suitable project case
 
 ### Power Requirements
 
@@ -99,3 +109,4 @@ Store the current colour as the default colour. This will be used when the unit 
 ## References
 
 - [Powering NeoPixels](https://learn.adafruit.com/adafruit-neopixel-uberguide/powering-neopixels)
+

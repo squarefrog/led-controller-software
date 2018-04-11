@@ -6,7 +6,7 @@
 #define SRC_CONSTANTS_H
 
 // Which pin is the LED strip connected to.
-#define LED_PIN 7
+#define LED_PIN 12
 
 // How many LEDs are in use.
 #define NUM_LEDS 150
