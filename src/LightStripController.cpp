@@ -21,11 +21,7 @@ void LightStripController::setup()
     FastLED.setMaxPowerInVoltsAndMilliamps(5, 4000);
 
     // Initialise the LEDs to black
-    for (int i = 0; i <= NUM_LEDS; i++)
-    {
-        leds[i] = CRGB::Black;
-    }
-
+    fill_solid(leds, NUM_LEDS, CRGB::Black);
     FastLED.show();
 }
 
@@ -110,11 +106,6 @@ void LightStripController::updateLEDStrip()
     byte hue = scaledValue(model.hue, 360, 255);
     byte saturation = scaledValue(model.saturation, 255, 100);
     byte brightness = scaledValue(model.brightness, 255, 100);
-
-    for (int i = 0; i <= NUM_LEDS; i++)
-    {
-        leds[i] = CHSV(hue, saturation, brightness);
-    }
-
+    fill_solid(leds, NUM_LEDS, CHSV(hue, saturation, brightness));
     FastLED.show();
 }
