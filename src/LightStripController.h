@@ -37,6 +37,7 @@ class LightStripController
     LightStrip model;
     int scaledValue(int value, int input, int output);
     void updateLEDStrip();
+    void switchOffLEDs();
 };
 
 #endif

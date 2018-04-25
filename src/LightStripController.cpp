@@ -20,9 +20,8 @@ void LightStripController::setup()
     // LEDs, you can limit the max power.
     FastLED.setMaxPowerInVoltsAndMilliamps(5, 4000);
 
-    // Initialise the LEDs to black
-    fill_solid(leds, NUM_LEDS, CRGB::Black);
-    FastLED.show();
+    // Show previously used or default colour.
+    updateLEDStrip();
 }
 
 void LightStripController::loop()
@@ -37,6 +36,7 @@ bool LightStripController::getIsOn()
 void LightStripController::setIsOn(bool isOn)
 {
     model.isOn = isOn;
+    updateLEDStrip();
 }
 
 int LightStripController::getHue()
@@ -101,11 +101,22 @@ int LightStripController::scaledValue(int value, int input, int output)
 
 void LightStripController::updateLEDStrip()
 {
+    if (!model.isOn) {
+        switchOffLEDs();
+        return;
+    }
+
     // HomeKit defines hue, saturation and brightness values differently to
     // what FastLED expects, so scale the values appropriately.
     byte hue = scaledValue(model.hue, 360, 255);
     byte saturation = scaledValue(model.saturation, 100, 255);
     byte brightness = scaledValue(model.brightness, 100, 255);
     fill_solid(leds, NUM_LEDS, CHSV(hue, saturation, brightness));
+    FastLED.show();
+}
+
+void switchOffLEDs()
+{
+    fill_solid(leds, NUM_LEDS, CRGB::Black);
     FastLED.show();
 }
