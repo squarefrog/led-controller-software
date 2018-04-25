@@ -94,7 +94,7 @@ void LightStripController::saveDefaultColour()
 
 int LightStripController::scaledValue(int value, int input, int output)
 {
-    float multiplier = float(input) / float(output);
+    float multiplier = float(output) / float(input);
     float result = round(multiplier * float(value));
     return int(result);
 }
@@ -104,8 +104,8 @@ void LightStripController::updateLEDStrip()
     // HomeKit defines hue, saturation and brightness values differently to
     // what FastLED expects, so scale the values appropriately.
     byte hue = scaledValue(model.hue, 360, 255);
-    byte saturation = scaledValue(model.saturation, 255, 100);
-    byte brightness = scaledValue(model.brightness, 255, 100);
+    byte saturation = scaledValue(model.saturation, 100, 255);
+    byte brightness = scaledValue(model.brightness, 100, 255);
     fill_solid(leds, NUM_LEDS, CHSV(hue, saturation, brightness));
     FastLED.show();
 }
