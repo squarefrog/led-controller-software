@@ -17,6 +17,7 @@ Allow control of an LED strip wirelessly, either over web API or [Homebridge](ht
 - [x] Support OTA updates
 - [ ] Create [Homebridge](https://github.com/nfarina/homebridge) plugin
 - [ ] Create [Postman](https://www.getpostman.com) API spec
+- [ ] Implement `identify` endpoint
 
 ## Hardware
 
