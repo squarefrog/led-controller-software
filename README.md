@@ -1,6 +1,6 @@
-# Homebridge TV Lights
+# ESP LED Controller
 
-Allow control of an LED strip wirelessly, either over web API or [Homebridge](https://github.com/nfarina/homebridge).
+Allow control of an LED strip wirelessly, either over web API or [Homebridge](https://github.com/nfarina/homebridge), using an ESP8266 module.
 
 ## Development Stages
 
@@ -21,12 +21,12 @@ Allow control of an LED strip wirelessly, either over web API or [Homebridge](ht
 
 ## Hardware
 
-### Bill of Materials (TBC)
+### Bill of Materials
 
-- Adafruit Huzzah Breakout - ESP8266 breakout board, any ESP8266 will probably work, but this one is nice and small
+- [Adafruit Huzzah Breakout](https://learn.adafruit.com/adafruit-huzzah-esp8266-breakout/overview) - ESP8266 breakout board, any ESP8266 will probably work, but this one is nice and small
 - WS2812B LED Light Strip - available in different LED densities. I use 30 per meter, which is fine for my purpose
 - 150-200 Ohm Resistor - to prevent voltage spikes which could damage the first LED
-- 1000 µF 6.3v or higher capacitor - to smooth the current drain from the PSU
+- 1000 µF or higher capacitor - to smooth the current drain from the PSU when animating
 - A suitable 5V power supply - see [Power Requirements](#power-requirements)
 
 #### Optional
@@ -56,7 +56,7 @@ While it is tempting to get a power supply from eBay, or AliExpress for as littl
 - [WiFiManager](https://github.com/tzapu/WiFiManager#install-through-library-manager) - for easily allowing connections to any WiFi access point
 - [FastLED](https://github.com/FastLED/FastLED) - for simplified driving of LED strips
 
-### API (WIP)
+### API
 
 The API endpoints are listed below. Endpoint value ranges are taken from the [HomeKit Accessory Protocol](https://developer.apple.com/support/homekit-accessory-protocol/), specifically the `Lightbulb` service. Fetching current values returns JSON with the current value. For example:
 
@@ -64,8 +64,8 @@ The API endpoints are listed below. Endpoint value ranges are taken from the [Ho
 
 #### Power
 
-`POST /on?v=true`
-Set the current power status, as a `bool` value.
+`POST /on?v={val}`
+Set the current power status, as a `bool` value. Either `true` or `false`.
 
 `GET /on`
 Returns the current power status as a `bool`.
