@@ -15,7 +15,7 @@ LightStripController::LightStripController()
 
 void LightStripController::setup()
 {
-    FastLED.addLeds<WS2812, LED_PIN, GRB>(leds, NUM_LEDS);
+    FastLED.addLeds<WS2812B, LED_PIN, GRB>(leds, NUM_LEDS);
     // If your power supply does not have enough headroom to power all your
     // LEDs, you can limit the max power.
     FastLED.setMaxPowerInVoltsAndMilliamps(5, 4000);
