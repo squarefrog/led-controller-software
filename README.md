@@ -30,7 +30,7 @@ Allow control of an LED strip wirelessly, either over web API or [Homebridge](ht
 
 #### Optional
 
-If using the PCB layout, you will also need:
+If using the [PCB layout](https://github.com/squarefrog/led-controller), you will also need:
 
 - DC Jack - Cliff DC10A, or DC10L
 - 3-way Terminal Block - 3.5mm pitch, or you can just solder the wires direct to the PCB
@@ -109,4 +109,3 @@ Store the current colour as the default colour. This will be used when the unit 
 ## References
 
 - [Powering NeoPixels](https://learn.adafruit.com/adafruit-neopixel-uberguide/powering-neopixels)
-
