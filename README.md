@@ -2,22 +2,12 @@
 
 Allow control of an LED strip wirelessly, either over web API or [Homebridge](https://github.com/nfarina/homebridge), using an ESP8266 module.
 
-## Development Stages
+## Features
 
 - [x] Allow setting up WiFi using [WiFiManager](https://github.com/tzapu/WiFiManager)
-- [x] Create a `LightStrip` model
-- [x] Create web server with [Homebridge](https://github.com/nfarina/homebridge) compatible API
-- [x] Connect LED Strip and get basic control working
-- [x] Connect API handler to LED handling code
-- [x] Save the current colour as the default boot colour
-- [ ] Fade in/out the LEDs when toggling power
-- [ ] Initialise and fade in LEDs before initialising WiFi stack
-- [ ] Show WiFi connect error by pulsing LEDs Red
-- [x] Fabricate a [PCB layout](https://github.com/squarefrog/led-controller)
+- [x] Simple API
 - [x] Support OTA updates
-- [ ] Create [Homebridge](https://github.com/nfarina/homebridge) plugin
-- [ ] Create [Postman](https://www.getpostman.com) API spec
-- [ ] Implement `identify` endpoint
+- [x] [Homebridge](https://github.com/nfarina/homebridge) plugin - [available here](https://github.com/squarefrog/homebridge-led-controller)
 
 ## Hardware
 
