@@ -115,7 +115,7 @@ void LightStripController::updateLEDStrip()
     FastLED.show();
 }
 
-void switchOffLEDs()
+void LightStripController::switchOffLEDs()
 {
     fill_solid(leds, NUM_LEDS, CRGB::Black);
     FastLED.show();
